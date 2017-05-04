@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 
 /**
@@ -18,6 +20,16 @@ public class Tree extends JPanel {
         
         Random random = new Random();
         this.setBounds(random.nextInt(w-300), random.nextInt(h-300), 300, 300);
+        
+//        addMouseListener(new MouseAdapter() {
+//			@Override public void mouseClicked(MouseEvent e) {
+//				int w = e.getX() - getX();
+//				int h = e.getY() - getY();
+//				if (w > 0 && w < getWidth() && h > 0 && h < getHeight()) {
+//					setVisible(false);
+//				}
+//			}
+//		});
     }
 
     public void paintComponent(Graphics g) {

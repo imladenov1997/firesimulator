@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -62,7 +63,7 @@ public class Frame extends JFrame implements Runnable, MouseListener, MouseMotio
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (tree == null) {
-			tree = new Tree[10]; // Some w/h relation
+			tree = new Tree[getWidth() * getHeight() / 16000];
 			Arrays.setAll(tree, i -> {
 				Tree t = new Tree(getWidth(), getHeight());
 				add (t);
