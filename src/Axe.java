@@ -21,8 +21,8 @@ public class Axe {
 	}
 
 	public void set (int x, int y) {
-		this.x=x;
-		this.y=y;
+		this.x=x - image.getWidth(null) / 2;
+		this.y=y - image.getHeight(null) / 2;
 	}
 	
 	public void paint (Graphics g) {

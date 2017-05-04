@@ -17,7 +17,8 @@ public class Frame extends JFrame implements Runnable, MouseListener, MouseMotio
 	}
 	
 	private Tree[] tree;
-//	private Axe axe;
+	private Axe axe;
+	private Lightning lightning;
 	
 	public Frame() {
 		super("Fire Simulator");
@@ -40,18 +41,22 @@ public class Frame extends JFrame implements Runnable, MouseListener, MouseMotio
 	@Override public void paint (Graphics g) {
 		super.paint(g);
 		
+		if (axe != null) {
+			axe.paint(g);
+		}
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		mouseMoved(arg0);
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		if (axe != null) {
+			axe.set(arg0.getX(), arg0.getY());
+			repaint(50);
+		}
 	}
 
 	@Override
@@ -60,6 +65,10 @@ public class Frame extends JFrame implements Runnable, MouseListener, MouseMotio
 			tree = new Tree[10]; // Some w/h relation
 			Arrays.setAll(tree, i -> new Tree(10,10)); // size-dependent? For painting?
 			add (tree[0]);
+			axe = new Axe(getWidth()/2, getHeight()/2);
+			
+			lightning = new Lightning(getHeight());
+			add (lightning);
 		}
 //		else if (axe != null) {
 //			
