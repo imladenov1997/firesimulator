@@ -63,8 +63,11 @@ public class Frame extends JFrame implements Runnable, MouseListener, MouseMotio
 	public void mouseClicked(MouseEvent e) {
 		if (tree == null) {
 			tree = new Tree[10]; // Some w/h relation
-			Arrays.setAll(tree, i -> new Tree(10,10)); // size-dependent? For painting?
-			add (tree[0]);
+			Arrays.setAll(tree, i -> {
+				Tree t = new Tree(getWidth(), getHeight());
+				add (t);
+				return t;
+			});
 			axe = new Axe(getWidth()/2, getHeight()/2);
 			
 			lightning = new Lightning(getHeight());

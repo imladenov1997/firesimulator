@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 /**
  * Created by Ivo Mladenov
@@ -9,12 +10,14 @@ public class Tree extends JPanel {
     private int length;
     private int width;
 
-    public Tree(int x, int y) {
+    public Tree(int w, int h) {
         super();
-        this.radius = 50;
-        this.length = 180;
-        this.width = 15;
-        this.setBounds(x, y, 300, 300);
+        this.radius = 20;
+        this.length = 80;
+        this.width = 6;
+        
+        Random random = new Random();
+        this.setBounds(random.nextInt(w-300), random.nextInt(h-300), 300, 300);
     }
 
     public void paintComponent(Graphics g) {
